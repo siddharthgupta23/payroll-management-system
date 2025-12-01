@@ -13,9 +13,9 @@ const app = express()
 
 
 
-app.use(cors({
-  origin: "https://payroll-management-system-ashen.vercel.app/",
-}));
+app.use(cors(
+ // origin: "https://payroll-management-system-ashen.vercel.app/",
+));
 // app.options("*", cors());
 
 app.use(express.json())
