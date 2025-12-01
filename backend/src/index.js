@@ -14,11 +14,6 @@ const app = express()
 
 const cors = require("cors");
 
-app.use(cors({
-  origin: "https://payroll-management-systemmmmmm.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
 app.use(express.json())
 
 app.use("/api/auth", authRoutes)
