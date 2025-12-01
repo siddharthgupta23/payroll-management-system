@@ -13,8 +13,12 @@ const app = express()
 
 
 
-app.use(cors(
+app.use(cors({
  // origin: "https://payroll-management-system-ashen.vercel.app/",
+  origin: "https://payroll-management-system-jsgoy7ci8.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+}
 ));
 // app.options("*", cors());
 
