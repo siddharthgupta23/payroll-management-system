@@ -54,7 +54,7 @@ const app = express();
 
 // 🔥 FIX: Enable full CORS including OPTIONS
 app.use(cors({
-  origin: "https://payroll-management-system-d5gurkbdp.vercel.app/login",  
+  origin: "https://payroll-management-system-omega.vercel.app/login",  
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
