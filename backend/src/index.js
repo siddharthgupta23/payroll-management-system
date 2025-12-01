@@ -13,7 +13,11 @@ const app = express()
 
 
 
-app.use(cors())
+app.use(cors({
+  origin: "https://payroll-management-system-ashen.vercel.app/",
+}));
+app.options("*", cors());
+
 app.use(express.json())
 
 app.use("/api/auth", authRoutes)
