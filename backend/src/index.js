@@ -55,15 +55,16 @@ const app = express();
 // 🔥 FIX: Enable full CORS including OPTIONS
 app.use(
    cors(
-    // {
-  //   origin: [
-  //     "https://payroll-management-system-omega.vercel.app",
-  //     "http://localhost:3000"
-  //   ],
-  //   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  //   allowedHeaders: ["Content-Type", "Authorization"],
-  //   credentials: true,
-  // }
+    {
+   origin: [
+     "https://payroll-management-system-omega.vercel.app",
+    "https://payroll-management-system-pwk7-aup28jx6s.vercel.app"
+
+   ],
+   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+   credentials: true,
+   }
   )
 );
 
