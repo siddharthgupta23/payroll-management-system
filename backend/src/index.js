@@ -55,16 +55,16 @@ const app = express();
 // 🔥 FIX: Enable full CORS including OPTIONS
 app.use(
    cors(
-    {
-   origin: [
-     "https://payroll-management-system-omega.vercel.app",
-    "https://payroll-management-system-pwk7-aup28jx6s.vercel.app"
+  //   {
+  //  origin: [
+  //    "https://payroll-management-system-omega.vercel.app",
+  //   "https://payroll-management-system-pwk7-aup28jx6s.vercel.app"
 
-   ],
-   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-   credentials: true,
-   }
+  //  ],
+  //  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  // allowedHeaders: ["Content-Type", "Authorization"],
+  //  credentials: true,
+  //  }
   )
 );
 
@@ -84,6 +84,8 @@ app.get("/", (req, res) => {
   res.send("Server running");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+
+module.exports = app;
