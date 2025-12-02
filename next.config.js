@@ -7,7 +7,7 @@ const nextConfig = {
       {
         source: '/api/:path*',
         // Change the port (4000) if your backend runs on a different port.
-        destination: 'https://localhost:5000/api/:path*',  
+        destination: 'https://payroll-management-system-hyln.onrender.com/api/:path*',  
       },
     ]
   },
