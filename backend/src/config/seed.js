@@ -17,8 +17,8 @@ const seedDatabase = async () => {
     // Create demo users
     const adminUser = await User.create({
       name: "Admin User",
-      email: "admin@example.com",
-      password: "password123",
+      email: "hire-me@anshumat.org",
+      password: "HireMe@2025!",
       role: "admin",
     })
 

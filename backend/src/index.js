@@ -52,9 +52,38 @@ connectDB();
 
 const app = express();
 
+const allowedOrigins = [
+  // Your Production Vercel domain (replace this with your actual custom domain if you have one)
+  'https://payroll-management-system-1tbn6gxua.vercel.app', 
+  // Add other necessary origins, like your final custom domain or other testing environments.
+  'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
+  'http://localhost:3000', // For local Next.js development
+  'http://localhost:5173', // If you use Vite/other local dev
+];
+
+// CORS Configuration Object
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      // Log or handle the rejection
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow cookies/authorization headers to be passed
+};
+
+// Apply the CORS middleware
+app.use(cors(corsOptions));
+
 // 🔥 FIX: Enable full CORS including OPTIONS
-app.use(
-   cors(
+//app.use(
+ //  cors(
   //   {
   //  origin: [
   //    "https://payroll-management-system-omega.vercel.app",
@@ -65,8 +94,8 @@ app.use(
   // allowedHeaders: ["Content-Type", "Authorization"],
   //  credentials: true,
   //  }
-  )
-);
+  //)
+//);
 
 // Allow preflight
 // app.options("*", cors());
@@ -83,6 +112,7 @@ const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
   res.send("Server running");
 });
+
 
  app.listen(PORT, () => {
    console.log(`Server running on port ${PORT}`);
