@@ -88,4 +88,4 @@ app.get("/", (req, res) => {
 //   console.log(`Server running on port ${PORT}`);
 // });
 
-module.exports = app;
+export default app;

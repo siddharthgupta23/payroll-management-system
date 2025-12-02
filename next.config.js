@@ -7,11 +7,11 @@ const nextConfig = {
       {
         source: '/api/:path*',
         // Change the port (4000) if your backend runs on a different port.
-        destination: 'http://localhost:4000/api/:path*',  
+        destination: 'https://localhost:5000/api/:path*',  
       },
     ]
   },
   // Other Next.js configuration goes here...
 };
 
-module.exports = nextConfig;
+export default nextConfig;
