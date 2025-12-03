@@ -59,7 +59,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ["https://payroll-management-system-zeta.vercel.app"],
+  origin: ["https://payroll-management-system-kyh4gm6dq.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
