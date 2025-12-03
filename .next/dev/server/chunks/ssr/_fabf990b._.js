@@ -6,7 +6,7 @@ __turbopack_context__.s([
     "API_BASE_URL",
     ()=>API_BASE_URL
 ]);
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://payroll-management-system-hyln.onrender.com/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://payroll-management-system-8jdv.onrender.com/api";
 }),
 "[project]/hooks/useAuth.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";

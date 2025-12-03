@@ -65,27 +65,28 @@ const app = express();
 //   credentials: true
 // }));
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:6578",
- // Vercel frontend URL
-].filter(Boolean)
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "http://localhost:6578",
+// ].filter(Boolean)
 
 app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or Postman)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true)
-      } else {
-        callback(new Error("CORS not allowed"))
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 200,
-  }),
+   cors(
+  //   origin: (origin, callback) => {
+  //     // Allow requests with no origin (like mobile apps or Postman)
+  //     if (!origin || allowedOrigins.includes(origin)) {
+  //       callback(null, true)
+  //     } else {
+  //       callback(new Error("CORS not allowed"))
+  //     }
+  //   },
+  //   credentials: true,
+  //   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  //   allowedHeaders: ["Content-Type", "Authorization"],
+  //   optionsSuccessStatus: 200,
+  // }
+  ),
+
 )
 
 app.options("*", cors());
