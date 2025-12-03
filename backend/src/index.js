@@ -44,24 +44,27 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 
-app.use(cors({
-  origin: ["https://payroll-management-system-zeta.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+
 import authRoutes from "./routes/auth.js";
 import adminRoutes from "./routes/admin.js";
 import employeeRoutes from "./routes/employee.js";
 
 
 
-app.options("*", cors());
+
 
 dotenv.config();
 connectDB();
 
 const app = express();
+
+app.use(cors({
+  origin: ["https://payroll-management-system-zeta.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+app.options("*", cors());
 
 /*const allowedOrigins = [
   // Your Production Vercel domain (replace this with your actual custom domain if you have one)
