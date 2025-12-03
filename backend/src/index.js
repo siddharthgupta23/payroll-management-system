@@ -58,12 +58,36 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: ["https://payroll-management-system-kyh4gm6dq.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ["https://payroll-management-system-kyh4gm6dq.vercel.app"],
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true
+// }));
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:6578",
+ // Vercel frontend URL
+].filter(Boolean)
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error("CORS not allowed"))
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200,
+  }),
+)
+
 app.options("*", cors());
 
 /*const allowedOrigins = [
@@ -71,7 +95,7 @@ app.options("*", cors());
  //  'https://payroll-management-system-1tbn6gxua.vercel.app', 
   // Add other necessary origins, like your final custom domain or other testing environments.
   // 'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
-  'http://localhost:3000', // For local Next.js development
+ //  'http://localhost:3000', // For local Next.js development
   //  // If you use Vite/other local dev
 ];*/
 
