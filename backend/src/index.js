@@ -56,7 +56,7 @@ const allowedOrigins = [
   // Your Production Vercel domain (replace this with your actual custom domain if you have one)
   'https://payroll-management-system-1tbn6gxua.vercel.app', 
   // Add other necessary origins, like your final custom domain or other testing environments.
-  'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
+  // 'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
   'http://localhost:3000', // For local Next.js development
   //  // If you use Vite/other local dev
 ];
