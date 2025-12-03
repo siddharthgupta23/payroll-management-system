@@ -58,7 +58,7 @@ const allowedOrigins = [
   // Add other necessary origins, like your final custom domain or other testing environments.
   'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
   'http://localhost:3000', // For local Next.js development
-  'http://localhost:5173', // If you use Vite/other local dev
+  //  // If you use Vite/other local dev
 ];
 
 // CORS Configuration Object
