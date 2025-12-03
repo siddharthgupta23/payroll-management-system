@@ -38,31 +38,42 @@
 //   console.log(`Server running on port ${PORT}`)
 // })
 
-
-import express from "express";
 import cors from "cors";
+import express from "express";
+
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
+
+app.use(cors({
+  origin: ["https://payroll-management-system-zeta.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 import authRoutes from "./routes/auth.js";
 import adminRoutes from "./routes/admin.js";
 import employeeRoutes from "./routes/employee.js";
+
+
+
+app.options("*", cors());
 
 dotenv.config();
 connectDB();
 
 const app = express();
 
-const allowedOrigins = [
+/*const allowedOrigins = [
   // Your Production Vercel domain (replace this with your actual custom domain if you have one)
  //  'https://payroll-management-system-1tbn6gxua.vercel.app', 
   // Add other necessary origins, like your final custom domain or other testing environments.
   // 'https://payroll-management-system-hyln.onrender.com/', // Example: The final Vercel URL
   'http://localhost:3000', // For local Next.js development
   //  // If you use Vite/other local dev
-];
+];*/
 
 // CORS Configuration Object
-const corsOptions = {
+/*const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
@@ -76,10 +87,10 @@ const corsOptions = {
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies/authorization headers to be passed
-};
+};*/
 
 // Apply the CORS middleware
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 // 🔥 FIX: Enable full CORS including OPTIONS
 //app.use(
